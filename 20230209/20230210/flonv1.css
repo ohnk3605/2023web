@@ -1,0 +1,24 @@
+@charset "utf-8";
+
+*{margin: 0;padding: 0;}
+
+li{list-style: none;}
+.clearfix:after{
+    content:"";display: block;clear: both;
+}
+
+div.wrap{
+    width: 1000px;
+    background-color: darkcyan;
+    margin: 0 auto;
+}
+
+div.wrap>ul>li{
+    float: left;
+    width: 20%;
+    text-align: center;
+    line-height: 50px;}
+
+
+   /* h1.logo a{background-color: antiquewhite;}*/
+
