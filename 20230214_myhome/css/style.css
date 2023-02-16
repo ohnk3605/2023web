@@ -131,7 +131,7 @@ h1 img{display: block;}
 }
 
 .con .cWrap{
-    padding: 20px 15px;
+    padding: 40px 15px;
     border: 1px solid #ddd;
 }
 .con h3{margin-bottom: 8px;}
@@ -139,11 +139,21 @@ h1 img{display: block;}
 .con img{
     position: absolute; 
     right: -15px;}
-.conItem{position: relative; overflow: hidden;}
-.cWrap{position: relative;}
+.conItem{overflow: hidden; position: relative;}
+.cWrap{
+    position: relative;
+    margin-bottom: 30px;
+    }
 
 /* footer */
+.ft .ftWrap{
+    padding: 30px 15px;
+    border: 1px solid #ddd;}
+
 .ft{
-    float: left;
     width: calc( 100% / 3 );
+    display: block; 
+    background-color: #4D4D4D;
+    float: left;
 }
+.ftWrap container{position: relative;}
