@@ -37,6 +37,7 @@
             <ul class="gnb clearfix"></ul>
         </nav>
     </header>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
         const gMenu = [
             "company",
@@ -46,7 +47,7 @@
             "공지사항",
         ]
         const gLink = [
-            "http://www.naver.com",
+            "#",
             "#",
             "#",
             "#",
@@ -60,17 +61,20 @@
             menu += "</li>";
         }
         console.log(menu)
+
+        const gnbEl = document.getElementsByClassName("gnb")[0];
+        gnbEl.innerHTML = menu;
         // document.getElementsByClassName("gnb")[0].innerHTML = menu;
-        $(".gnb").html(menu)
+        // $(".gnb").html(menu)
     </script>
 
-
+<!-- 
 <script>
   menu = menu + gMenu[i];
 
 
   "<a herf='" + 변수 + "'>" + 변수 + "</a>";
 
-</script>
+</script> -->
 </body>
 </html>
