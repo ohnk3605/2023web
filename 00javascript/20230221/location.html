@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: #f00;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="box" onclick="location.href='location01.html'">
+
+    </div>
+    <div id="day">일요일</div>
+    <div id="day1">일요일</div>
+
+
+    <script>
+        const week = new Date().getDay()
+        console.log(week)
+
+        // const str = new String("han")
+        // const str1 = "ddd"
+
+        let day ="";
+        switch(week){
+            case 0:
+                day = "일";
+                break;
+            case 1:
+                day = "월";
+                break;
+            case 2:
+                day = "화";
+                break;
+            case 3:
+                day = "수";
+                break;
+            case 4:
+                day = "목";
+                break;
+
+        // case 1 위에 브레이크 빼면 위도 아래도 포함하는 거. 바깥쪽에 전역변수 공간을 줘야 함 ;
+        // 포문?
+        }
+
+        // document.write("오늘은" + day + "요일입니다.")
+        document.getElementById("day").innerHTML = "오늘은 " + day + "요일 입니다.";
+        // $("#day1").html("오늘 역시 " + day + "요일 입니다.")
+
+        console.log(document.getElementById("day").innerHTML);
+
+    </script>
+</body>
+</html>
