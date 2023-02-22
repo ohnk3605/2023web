@@ -19,20 +19,18 @@ h3{font-size:18px;letter-spacing: -1px;}
 
 /* header  */
 .top{border-bottom: 1px solid #E3D9D9;margin-bottom: 10px;}
-.submenu{float: right;height: 26px;_background: skyblue;}
+.submenu{float: right;height: 26px;}
 .submenu li{float: left;}
 .submenu li a{
     display: block;
-    _height: 26px;
-    _background: pink;
     font-size: 12px;
     padding: 0 10px;
     line-height: 26px;
     position: relative;
 }
 .submenu li a:after{
-    content:"";display: block;height: 4px;width: 4px;background: #888;
-    position: absolute;left: -2px;;top: 11px;
+    content:"";display: block;height: 6px;width: 1px;background: #888;
+    position: absolute;left: -2px;top: 11px;
     border-radius: 50%;
 }
 .submenu li:first-child a:after{display: none;}
@@ -117,7 +115,7 @@ h1 img{display: block;}
 .jobWrap p{color:#888}
 
 /* con */
-.conWrap{margin-bottom: 20px;}
+.con{margin-bottom: 20px;}
 .con li{
     float: left;
     width: calc( ( 100% - 50px ) / 3 );
@@ -129,6 +127,7 @@ h1 img{display: block;}
     background-repeat: no-repeat;
     background-position: 130px 10px;
 }
+
 .con li:last-child{margin-right: 0;}
 .con li .tWrap{width: 200px; position: relative;}
 .con li .tWrap h3,
@@ -140,21 +139,67 @@ h1 img{display: block;}
 
 /* footer */
 
-.ftWrap li{
-    width: calc( 370px / 3 );
-    display: block; 
-    background-color: #4D4D4D;
+.ftmenu{
+    background:#4D4D4D;
+    width: 100%;
+    height: 25px;
     float: left;
-    border-left: 0.5px solid #f1f1f1;
-    /* display: flex;
+    
+}
+
+.ftWrap li{
+    width: calc( 400px / 3 );
+    display: block; 
+    float: left;
+    border-left: 0.5px solid ;
+    display: flex;
     justify-content: center;
-    text-align: center; */
+    text-align: center;
+    padding: 5px;
 
 }
 .ftWrap li a{
     color: #BDBDBD;
     font-size:x-small;
     border-radius: 50%;
-
+    position: relative;
 }
+.ftmenu li a:after{
+    content:"";display: block;height: 6px;width: 1px;background: #888;
+    position: absolute;
+    border-radius: 50%;}
+
 /* .ftWrap container{position: relative;} */
+.ftBottom{
+    background: #5E5E5E;
+    display: block;
+}
+.ftLeft{
+    float: left;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    width: 135px;
+    height: 75px;
+}
+.ftLeft li a{
+        color: #f1f1f1;
+        font-size: large;
+        height: 67.5px;
+        display: flex;
+        justify-content: center;
+        align-items: center
+    }    
+
+
+.ftRight{
+    float: left;
+    display: flex;
+    justify-content: center;
+    /* text-align: center; */
+    width: 550px;
+    height: 75px;
+}
+.ftRight li a{
+    color: #AAAAAA;
+}
