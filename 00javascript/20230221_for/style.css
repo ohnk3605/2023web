@@ -4,31 +4,31 @@ html,body{height: 100%;}
 
 /* reset */
 *{margin: 0;padding: 0; box-sizing: border-box;}
-a:link,a:visited{text-decoration: none;color:#888} 
 .clearfix:after{content:"";display: block;clear: both;}
 li{list-style: none;}
 
 .container{width: 980px;margin: 0 auto;}
 
-/* .main .container{margin-right: 25px; width: calc( ( 100% - 50px ) / 3); height: 100px;} */
-.mainTop{
-    
-    /* float: left;  */
-    margin: 0 auto;padding: 0;
-    display: block;
-    /* margin-right: 25px; */
-    /* height: 500px; */
-    /* position: relative; */
-    /* width: calc( ( 100% - 50px ) / 3 ); */
-    
-}
-.main ul{
-    /* margin-right: 25px;
-    height: 50px; */
-    /* position: absolute; */
-}
-
-.mainImage{
-    float: left; 
+/* .mWrap{
     width: calc( ( 100% - 50px ) / 3 );
+    margin-right: 25px;
+    display: block;
+    float: left;
+    
+} */
+/* .mWrap{
+    border: 1px solid #070707;
+    width: calc( ( 100% - 50px ) / 3 ); display: block;
+} */
+ul{
+    
 }
+li{
+    width: 300px;
+    float: left;
+    margin-right: 10px;
+}
+/* li img{
+    width: 300px;
+    height: 300px;
+} */
