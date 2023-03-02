@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        fieldset{
+            border: 0 none;
+        }
+        .blind{display: block;position: absolute;left: -9999px;}
+        input:focus{
+            background-color: skyblue;
+            outline: none;
+            border: 0 none;
+        }
+       
+    </style>
+</head>
+<body>
+    <form action="#" method="get">
+        <fieldset>
+            <legend class="blind">기본정보</legend>
+            <label for="myName">이름</label>
+            <input type="text" name="name" placeholder="성명" id="myName">
+            <label for="pwd">비밀번호</label>
+            <input type="password" name="pw" placeholder="비밀번호" id="pwd">
+            <input type="submit" value="전송">
+        </fieldset>
+
+        <fieldset>
+            <legend class="blind">기본정보</legend>
+            <label for="myName">이름</label>
+            <input type="text" name="name" placeholder="성명" id="myName">
+            <label for="pwd">비밀번호</label>
+            <input type="password" name="pw" placeholder="비밀번호" id="pwd">
+            
+        </fieldset>
+        <input type="submit" value="전송">
+    </form>
+
+    <!-- submit있으면 폼 시작과 끝. 범위 있어야 함
+        라벨과 인풋은 한 쌍 fordml myName과 id myName은 같아야 함
+        outline: none 중요. 보더값 말고도 겉 두께 줄이는 방법임.
+    -->
+</body>
+</html>

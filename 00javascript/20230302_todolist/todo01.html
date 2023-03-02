@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>용복 list</title>
+    <style>
+        html,body{height: 100%;}
+        *{margin: 0;padding: 0;box-sizing: border-box;}
+        a:link,a:visited{text-decoration: none;color: #333;}
+        li{list-style:none;}
+
+        .inpWrap{
+            margin: 0 auto; 
+            width: 300px; 
+            background: skyblue;
+        }
+
+
+        .listview{
+            width: 300px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="inpWrap">
+        <input type="text" class="inp" value="" placeholder="오늘의 할 일은..">
+        <button class="btn1">입력</button>
+    </div>
+
+    <div class="listview">
+
+    </div>
+
+    <script>
+        const inpElem = document.querySelector(".inp")
+        const btnElem = document.querySelector(".btn1")
+        const listElem = document.querySelector(".listview")
+
+
+        const listData = [
+            "뽁",
+            "뽁",
+            "복",
+            "교환",
+            "양도",
+        ]
+        
+        btnElem.addEventListener("click",function(){
+            if(inpElem.value == ""){
+                alert("오늘의 할 일을 입력하세요")
+                inpElem.focus()
+                // console.log("자료를 입력하세요");
+            }else{
+                listData.push(inpElem.value)
+                viewData();
+                inpElem.value = ""
+
+
+            } 
+
+            // console.log(inpElem.value);
+        })
+
+        function viewData(){
+            let listTitle = "<ul>";
+            for(let i=0;i<listData.length;i++){
+                listTitle += `<li>${listData[i]}</li>`
+            }
+            listTitle += "</ul>";
+            console.log(listTitle);
+            listElem.innerHTML = listTitle
+            
+        
+        }
+        viewData();
+
+    </script>
+</body>
+</html>
