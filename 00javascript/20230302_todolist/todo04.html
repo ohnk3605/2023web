@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mytodo</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <style>
+         .btn_modi{
+            display: none;   
+        }
+
+        .inpWrap, 
+        .listView{
+            width: 300px;
+            margin: 0 auto;
+        }
+        .lnpWrap{background-color: skyblue;}
+
+        .listView {
+            background: pink;
+        }
+        .listView ul li{
+            display: flex; 
+            margin-bottom: 5px 0;
+        }
+        .listView ul li .list{display: flex;align-items: center;padding-left: 10px;}
+
+        .listView ul .icon{
+            margin-left: auto;
+            background: #000;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            display: flex;
+            gap: 10px;
+        }
+        .listView ul li .icon a{color: white;}
+        .item.done{background: blue;}
+    </style>
+</head>
+
+<body>
+    <!-- <i class="fa-solid fa-trash"></i>
+    <i class="fa-solid fa-hammer"></i>
+    <i class="fa-solid fa-square-check"></i> -->
+
+    <div class="inpWrap">
+        <input type="hidden" class="num">
+        <input type="text" class="inp">
+        <button class="btn_input">입력</button>
+        <button class="btn_modi">수정</button>
+    </div>
+
+    <div class="listView">
+        <ul></ul>
+        <button class="btnAllDel" onclick="listAllDell()">전체삭제</button>
+    </div>
+    <script>
+        let listData = []
+        // let obj ={todo:"자바스트립트1",done:false}
+        // listData[0].todo
+        const inpEl = document.querySelector(".inp")
+        const btnIpEl = document.querySelector(".btn_input")
+        const numEl = document.querySelector(".num")
+        const btnMoEl = document.querySelector(".btn_modi")
+        const listEl = document.querySelector(".listView ul")
+
+        //입력
+        btnIpEl.addEventListener("click",function(){
+
+            let value = {"todo":inpEl.value,"done":false}
+
+            if(inpEl.value != ""){
+            listData.push(value)
+
+            let valueData = JSON.stringify(listData)
+            localStorage.setItem("todoData",valueData)
+            viewData()
+            inpEl.value = ""
+            }else{
+                alert("오늘의 할 일을 입력하세요")
+                inpEl.focus()
+            }
+
+
+            // console.log(value);
+        })
+
+         //수정
+         btnMoEl.addEventListener("click",function(){
+            listData[numEl.value].todo = inpEl.value;
+            listData[numEl.value].done = false;
+            inpEl.value = ""
+            btnIpEl.style.display = "inline-block";
+            btnMoEl.style.display = "none";
+
+            //localStorage
+            let valueData = JSON.stringify(listData)
+            localStorage.setItem("todoData",valueData)
+            viewData()
+         })
+
+        function viewData(){
+            if(localStorage.length>0){
+                let localData = localStorage.getItem("todoData");
+                listData = JSON.parse(localData)
+            }
+            
+            let viewList = "";
+            listData.forEach(function(item,index){
+                console.log(item.todo);
+                // viewList += `
+                //                 <li>${item.todo}</li>
+                //             `
+                if(item.done == true){
+                    viewList += `<li class="item done">${item.todo}`
+                }else{
+                    viewList += `<li class="item">${item.todo}`
+                }
+                viewList += `<div class="icon">
+                    <a href="javscript:void(0)" onclick="itemDel(${index})"><i class="fa-solid fa-trash"></i></a>
+                    <a href="javscript:void(0)" onclick="modi('${item.todo}',${index})"><i class="fa-solid fa-hammer"></i></a>
+                    <a href="javscript:void(0)" onclick="done(${index})"><i class="fa-solid fa-square-check"></i></a>
+                    </div></li>`
+                // viewList += "<li class='item'>"
+                // viewList += item.todo
+                // viewList += "</li>"
+            })
+
+            listEl.innerHTML = viewList
+
+            // for(let i=0;i<listData.length;i++){
+            //     console.log(listData[i].done);
+            // }
+        }
+
+        viewData();
+
+        function itemDel(index){
+            listData.splice(index,1)
+            // 몇 번째 중에서 하나만 삭제한다는 뜻
+            let valueData = JSON.stringify(listData)
+            localStorage.setItem("todoData",valueData)
+            viewData()
+        }
+
+        function done(index){
+            console.log(index);
+            // if( listData[index].done == true ){
+            //     listData[index].done = false
+            // } else{
+            //     listData[index].done = true
+            // }
+            listData[index].done = !listData[index].done;
+            let valueData = JSON.stringify(listData)
+            localStorage.setItem("todoData",valueData)
+            viewData()
+        }
+
+        function modi(todo,index){
+            console.log(todo+index);
+            inpEl.value = todo;
+            numEl.value = index;
+            btnIpEl.style.display = "none"
+            btnMoEl.style.display = "inline-block"
+        }
+
+        function listAllDell(){
+            listData = [];
+                        let valueData = JSON.stringify(listData)
+            localStorage.setItem("todoData",valueData)
+            viewData()
+        }
+    </script>
+</body>
+
+</html>
