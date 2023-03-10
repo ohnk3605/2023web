@@ -21,16 +21,16 @@
     </div>
     <div class="conWrap">
         <div>
-            1.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi, soluta.
+            <img src="../../images/spring.jpg" alt="">
         </div>
         <div>
-            2.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi, soluta.
+            <img src="../../images/summer.jpg" alt="">
         </div>
         <div>
-            3.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi, soluta.
+            <img src="../../images/fall.jpg" alt="">
         </div>
         <div>
-            4.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi, soluta.
+            <img src="../../images/winter.jpg" alt="">
         </div>
     </div>
     <script>
@@ -42,6 +42,11 @@
 
             $(".conWrap div").hide()
             $(".conWrap div").eq(i).show()
+
+            console.log($(this).index())
+            let img imgArray = $(this).index()
+            const img imgArray = ["spring","summer","fall","winter"]
+            $(".conWrap div img").attr("src","")
 
         })
     </script>
