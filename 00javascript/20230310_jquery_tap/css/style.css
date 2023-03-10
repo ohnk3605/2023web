@@ -1,0 +1,26 @@
+.tap {
+  width: 300px;
+  height: 40px;
+}
+.tap ul {
+  height: 100%;
+  display: flex;
+}
+.tap ul li {
+  width: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: skyblue;
+  cursor: pointer;
+}
+.tap ul li.active {
+  background: pink;
+}
+
+.conWrap div {
+  display: none;
+}
+.conWrap div:nth-child(1) {
+  display: block;
+}/*# sourceMappingURL=style.css.map */
